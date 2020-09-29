@@ -29,6 +29,32 @@ function writePassword() {
     confirmNumber = confirm('Click OK to confirm including numeric characters.');
     confirmLowercase = confirm('Click OK to confirm including lowercase characters.');
     confirmUppercase = confirm('Click OK to confirm including uppercase characters.');
+  };
+
+  if (!confirmCharacter && !confirmNumber && !confirmLowercase && !confirmUppercase) {
+    choices = alert('You must choose a criteria!');
+  } else if (confirmCharacter && confirmNumber && confirmLowercase && confirmUppercase) {
+    choices = character.concat(number, alpha alpha2);
+  } else if (confirmCharacter && confirmNumber && confirmUppercase) {
+    choices = character.concat(number, alpha2);
+  } else if (confirmCharacter && confirmNumber && confirmUppercase) {
+    choices = character.concat(number, alpha);
+  } else if (confirmCharacter && confirmLowercase && confirmUppercase) {
+    choices = character.concat(number, alpha2);
+  } else if (confirmNumber && confirmLowercase && confirmUppercase) {
+    choices = character.concat(alpha, alpha2);
+  } else if (confirmCharacter && confirmNumber) {
+    choices = character.concat(number);
+  } else if (confirmCharacter && confirmLowercase) {
+    choices = character.concat(alpha);
+  } else if (confirmCharacter && confirmUppercase) {
+    choices = character.concat(alpha2);
+  } else if (confirmLowercase && confirmNumber) {
+    choices = alpha.concat(number);
+  } else if (confirmLowercase && confirmUppercase) {
+    choices = alpha.concat(alpha2);
+  } else if (confirmLowercase && confirmUppercase) {
+    choices = number.concat(alpha2);
   }
 
   var password = generatePassword();
