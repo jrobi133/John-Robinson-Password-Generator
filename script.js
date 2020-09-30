@@ -3,7 +3,7 @@ var enter;
 var confirmNumber;
 var confirmCharacter;
 var confirmUppercase;
-var confirmLowercase
+var confirmLowercase;
 
 
 number = [1, 2, 3, 4, 5, 6, 7, 8, 9];
@@ -18,9 +18,14 @@ var toUpper = function (x) {
 alpha2 = alpha.map(toUpper);
 var generateBtn = document.querySelector("#generate");
 
+generateBtn.addEventListener("click", function () {
+  ps = writePassword();
+  document.getElementById("password").placeholder = ps;
+});
+
 // Write password to the #password input
 function writePassword() {
-  enter = parseInt(prompt('How many characters would you like your password to contain?'))
+  enter = parseInt(prompt('How many characters would you like your password to contain?'));
 
   if (!enter) {
     alert('This needs a value');
@@ -34,15 +39,15 @@ function writePassword() {
   if (!confirmCharacter && !confirmNumber && !confirmLowercase && !confirmUppercase) {
     choices = alert('You must choose a criteria!');
   } else if (confirmCharacter && confirmNumber && confirmLowercase && confirmUppercase) {
-    choices = character.concat(number, alpha alpha2);
+    choices = character.concat(number, alpha, alpha2);
   } else if (confirmCharacter && confirmNumber && confirmUppercase) {
     choices = character.concat(number, alpha2);
-  } else if (confirmCharacter && confirmNumber && confirmUppercase) {
+  } else if (confirmCharacter && confirmNumber && confirmLowercase) {
     choices = character.concat(number, alpha);
   } else if (confirmCharacter && confirmLowercase && confirmUppercase) {
-    choices = character.concat(number, alpha2);
-  } else if (confirmNumber && confirmLowercase && confirmUppercase) {
     choices = character.concat(alpha, alpha2);
+  } else if (confirmNumber && confirmLowercase && confirmUppercase) {
+    choices = number.concat(alpha, alpha2);
   } else if (confirmCharacter && confirmNumber) {
     choices = character.concat(number);
   } else if (confirmCharacter && confirmLowercase) {
@@ -53,19 +58,38 @@ function writePassword() {
     choices = alpha.concat(number);
   } else if (confirmLowercase && confirmUppercase) {
     choices = alpha.concat(alpha2);
-  } else if (confirmLowercase && confirmUppercase) {
+  } else if (confirmNumber && confirmUppercase) {
     choices = number.concat(alpha2);
+  } else if (confirmCharacter) {
+    choices = character;
+  } else if (confirmNumber) {
+    choices = number;
+  } else if (confirmLowercase) {
+    choices = alpha;
+  } else if (confirmUppercase) {
+    choices = space.concat(alpha2);
+  };
+
+  // var password = [];
+  var password = generatePassword();
+
+  for (var i = 0; i < enter; i++) {
+    var pickChoices = choices[Math.floor(Math.random() * choices.length)];
+    password.push(pickChoices);
   }
 
-  var password = generatePassword();
-  var passwordText = document.querySelector("#password");
+  var ps = password.join("");
+  UserInput(ps);
+  return ps;
+  // var passwordText = document.querySelector("#password");
 
-  passwordText.value = password;
+  // passwordText.value = password;
 
 }
 
+function UserInput(ps) {
+  document.getElementById("password").textContent = ps;
+}
+
 // Add event listener to generate button
-generateBtn.addEventListener("click", writePassword);
-
-
-confirmCharacter = confirm('Click OK to confirm including special characters.');
+// generateBtn.addEventListener("click", writePassword);
