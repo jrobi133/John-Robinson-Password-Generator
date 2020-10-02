@@ -8,8 +8,7 @@ var confirmLowercase;
 
 number = [1, 2, 3, 4, 5, 6, 7, 8, 9];
 alpha = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"];
-character = ["!", "#", "$", "%", "&", "'", "(", ")", "*", "+", ",", "-", ".", "/", "\:", "\;", " < ", "=", " > ", " ? ", "@", "[", "\\", "]", " ^ ", "_", "`", "{", "|", "}", "~"];
-space = [];
+character = ["!", "#", "$", "%", "&", "'", "(", ")", "*", "+", ",", "-", ".", "/", "\:", "\;", "<", "=", ">", "?", "@", "[", "\\", "]", "^", "_", "`", "{", "|", "}", "~"];
 
 var choices;
 var toUpper = function (x) {
@@ -19,12 +18,12 @@ alpha2 = alpha.map(toUpper);
 var generateBtn = document.querySelector("#generate");
 
 generateBtn.addEventListener("click", function () {
-  ps = writePassword();
-  document.getElementById("password").placeholder = ps;
+  var password = generatePassword();
+  document.getElementById("password").placeholder = password;
 });
 
 // Write password to the #password input
-function writePassword() {
+function generatePassword() {
   enter = parseInt(prompt('How many characters would you like your password to contain?'));
 
   if (!enter) {
@@ -66,30 +65,20 @@ function writePassword() {
     choices = number;
   } else if (confirmLowercase) {
     choices = alpha;
-  } else if (confirmUppercase) {
-    choices = space.concat(alpha2);
   };
 
-  // var password = [];
-  var password = generatePassword();
+  var password = [];
 
   for (var i = 0; i < enter; i++) {
     var pickChoices = choices[Math.floor(Math.random() * choices.length)];
     password.push(pickChoices);
   }
 
-  var ps = password.join("");
-  UserInput(ps);
-  return ps;
-  // var passwordText = document.querySelector("#password");
-
-  // passwordText.value = password;
-
+  var password = password.join("");
+  UserInput(password);
+  return password;
 }
 
 function UserInput(ps) {
   document.getElementById("password").textContent = ps;
 }
-
-// Add event listener to generate button
-// generateBtn.addEventListener("click", writePassword);
