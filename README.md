@@ -11,14 +11,14 @@
 
 ## Description:
 
-<!-- This app allows user to generate random passwords includes  -->
+This app allows user to generate random passwords includes that can include special characters, numbers, lowercase and uppercase characters. 
 
 Here is a link to the live application:
-<!-- https://w21c-book-search.herokuapp.com/ -->
+https://jrobi133.github.io/John-Robinson-Password-Generator/
 
 ## App Usage:
 
-This is an app to generate random password.
+Generate password by entering how many characters you would like, and if you would like special characters, numbers, lowercase characters and uppercase characters.
 
 ## License Details:
 
@@ -40,4 +40,6 @@ https://github.com/jrobi133
 johnarobinson133@gmail.com
 for additional questions
 
-![](/Assets/03-javascript-homework-demo.png)
+![](/Assets/screenshot.png)
+![](/Assets/screenshot2.png)
+![](/Assets/screenshot3.png)
