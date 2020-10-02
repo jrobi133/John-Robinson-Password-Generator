@@ -41,5 +41,5 @@ johnarobinson133@gmail.com
 for additional questions
 
 ![](/Assets/screenshot.png)
-![](/Assets/screenshot2.png)
-![](/Assets/screenshot3.png)
+![](/Assets/screenshot2.PNG)
+![](/Assets/screenshot3.PNG)
